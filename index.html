@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Parallax using vanilla js ( 28 october 2022 )</title>
+	<style type="text/css">
+		body {
+			height: 2000px;
+			margin: 0;
+		}
+
+		section {
+			height: 100vh;
+			background: url(zebra.jpg) no-repeat scroll center center;
+			background-size: 160%;
+		}
+
+		img {
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<section>
+	</section>
+
+	<script>
+		window.addEventListener('scroll', function () {
+			let section = document.querySelector('section');
+			// console.log(window.pageYOffset === window.scrollY); // True
+			section.style.opacity = `${1 - window.scrollY / window.innerHeight}`;
+			section.style.backgroundSize = 160 - window.scrollY / 12 + '%';
+		});
+	</script>
+</body>
+
+</html>
